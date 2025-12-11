@@ -40,10 +40,6 @@ export const authOptions: NextAuthOptions = {
                         }
                     }
 
-
-
-
-
                 } catch (error: any) {
                     throw new Error(error);
                 }
@@ -71,10 +67,10 @@ export const authOptions: NextAuthOptions = {
         }
     },
     pages: {
-        signIn: 'sign-In'
+        signIn: 'sign-in'
     },
     session: {
         strategy: "jwt"
     },
-    secret: process.env.SECRET_AUTH_KEY,
+    secret: process.env.NEXTAUTH_URL,
 }
