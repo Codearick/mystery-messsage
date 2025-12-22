@@ -25,7 +25,7 @@ export async function POST(request: Request) {
             return Response.json(
                 {
                     success: false,
-                    message: "User already exists!"
+                    message: "User already exists."
                 },
                 {
                     status: 401
@@ -41,7 +41,7 @@ export async function POST(request: Request) {
                 return Response.json(
                 {
                     success: false,
-                    message: "User already exists with this email!"
+                    message: "User already exists with this email."
                 },
                 { status: 409 })
             } else{
@@ -62,7 +62,7 @@ export async function POST(request: Request) {
             expiryDate.setDate(expiryDate.getDate() + 7); // setting expiry code
 
             const newUser = new UserModel({
-                username,
+                username: username.toLowerCase(),
                 email,
                 password: hashedPassword,
                 verifyCode: OTP,

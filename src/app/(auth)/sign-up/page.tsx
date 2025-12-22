@@ -88,6 +88,7 @@ const page = () => {
             console.log("Error in signing up user", error);
             const axiosError = error as AxiosError<ApiResponse>;
             let errorMessage = axiosError.response?.data.message;
+
             toast.error("Signup failed", {
                 description: errorMessage,
             })
@@ -97,8 +98,8 @@ const page = () => {
     }
 
     return (
-        <div className="flex item-center justify-center min-h-screen bg-gray-100">
-            <div className="w-full max-w-md h-1/2 p-8 m-10 space-y-8 bg-white rounded-lg shadow-md">
+        <div className="flex item-center justify-center min-h-screen bg-black">
+            <div className="w-full max-w-md h-1/2 p-8 m-10 space-y-8 bg-gray-100 rounded-lg shadow-md">
                 <div className="text-center">
                     <h1 className="text-3xl font-extrabold tracking-tight lg:text-4xl mb-6">
                         Join Mystery Message
@@ -128,9 +129,8 @@ const page = () => {
                                         placeholder="Please enter your username"
                                         autoComplete="off"
                                     />
-                                    {
-                                        isCheckingUsername ? <Loader2 className="animate-spin"/> 
-                                        : (<p className={`text-sm ${usernameMessage === 'Username available.' ? 'text-gray-600' : 'text-red-500'}`}>{usernameMessage}</p>)
+                                    {isCheckingUsername ? <Loader2 className="animate-spin"/> 
+                                        : (<span className={`text-sm ${usernameMessage === 'Username available.' ? 'text-gray-600' : 'text-red-500'}`}>{usernameMessage}</span>)
                                     }
                                 </Field>
                             )}
