@@ -12,7 +12,7 @@ const Navbar = () => {
     const user: User = session?.user as User; 
 
   return (
-    <nav className='md:p-6 p-4 shadow-md'>
+    <nav className='sticky top-0 z-20 md:p-6 p-4 shadow-md'>
         <div className='container mx-auto flex flex-col md:flex-row justify-between items-center'>
             <a className='text-xl font-bold mb-4 md:mb-0' href="/dashboard">Mystery Message</a>
             {
@@ -26,7 +26,7 @@ const Navbar = () => {
                     <Button className='w-full md:w-auto'>Login</Button>
                     </Link>
                 )
-            }
+            } 
         </div>
     </nav>
   )
