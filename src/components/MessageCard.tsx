@@ -51,9 +51,10 @@ const MessageCard = ({ message, onMessageDelete }: MessageCardProp) => {
   const handleDeleteConfirm = async () => {
     try {
       const response = await axios.delete<ApiResponse>(
-        `/api/delete-message/${message._id.toString()}`,
+        `/api/delete-message/${message._id.toString()}`
       );
-      toast.success(response.data.message);
+      toast.success("Deleted !", {description:response.data.message});
+
       onMessageDelete(message._id.toString());
     } catch (error) {
       toast.error("Failed to delete message!");
@@ -119,18 +120,18 @@ const MessageCard = ({ message, onMessageDelete }: MessageCardProp) => {
                     className="ease-in-out">
                     <AlertDialogHeader>
                       <AlertDialogTitle>
-                        Are you absolutely sure?
+                        Delete Message?
                       </AlertDialogTitle>
                       <AlertDialogDescription>
-                        This action cannot be undone. This will permanently
+                        This will permanently
                         delete this message.
                       </AlertDialogDescription>
                     </AlertDialogHeader>
 
                     <AlertDialogFooter>
-                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+                      <AlertDialogCancel className="rounded-3xl">Cancel</AlertDialogCancel>
                       <AlertDialogAction
-                        className="bg-red-400 text-white"
+                        className="bg-red-400 text-white rounded-3xl"
                         onClick={handleDeleteConfirm}
                       >
                         Continue
